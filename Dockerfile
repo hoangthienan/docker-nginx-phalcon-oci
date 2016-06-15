@@ -42,4 +42,4 @@ RUN mkdir /var/log/supervisor/
 
 CMD [ "/var/startup.sh" ]
 
-RUN apt-get clean -y 
+RUN apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
