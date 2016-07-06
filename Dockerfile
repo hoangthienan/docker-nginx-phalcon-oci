@@ -1,7 +1,7 @@
 FROM hoangthienan/docker-nginx-phalcon:latest
 
 RUN apt-get update 
-RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y python-setuptools python-pip unzip libaio-dev
+RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y build-essential libaio1 python-setuptools python-pip unzip libaio-dev
 
 # Oracle instantclient
 ADD oracle/instantclient-basic-linux.x64-12.1.0.2.0.zip /tmp/
@@ -16,6 +16,7 @@ RUN ln -s /usr/local/instantclient/libclntsh.so.12.1 /usr/local/instantclient/li
 RUN ln -s /usr/local/instantclient/sqlplus /usr/bin/sqlplus
 RUN echo 'instantclient,/usr/local/instantclient' | pecl install oci8-2.0.11
 RUN echo "extension=oci8.so" > /etc/php5/fpm/conf.d/30-oci8.ini
+RUN echo "extension=oci8.so" > /etc/php5/cli/conf.d/30-oci8.ini
 
 # Install supervisord
 RUN easy_install supervisor
