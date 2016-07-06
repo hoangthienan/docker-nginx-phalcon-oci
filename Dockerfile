@@ -1,7 +1,7 @@
 FROM hoangthienan/docker-nginx-phalcon:latest
 
 RUN apt-get update 
-RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y build-essential libaio1 python-setuptools python-pip unzip libaio-dev
+RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y build-essential python-setuptools python-pip unzip libaio-dev
 
 # Oracle instantclient
 ADD oracle/instantclient-basic-linux.x64-12.1.0.2.0.zip /tmp/
