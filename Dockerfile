@@ -42,7 +42,7 @@ ADD supervisord.conf /etc/supervisord.conf
 RUN mkdir /var/log/supervisor/
 
 # create conf directory for supervisord
-RUN mkdir /etc/supervisor/conf.d/
+RUN mkdir -p /etc/supervisor/conf.d/
 
 CMD [ "/var/startup.sh" ]
 
