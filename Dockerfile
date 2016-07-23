@@ -41,6 +41,9 @@ ADD supervisord.conf /etc/supervisord.conf
 # create log directory for supervisord
 RUN mkdir /var/log/supervisor/
 
+# create conf directory for supervisord
+RUN mkdir /etc/supervisor/conf.d/
+
 CMD [ "/var/startup.sh" ]
 
 RUN apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
