@@ -35,6 +35,9 @@ sed -i -e "s/pm.min_spare_servers = 1/pm.min_spare_servers = 4/g" /etc/php5/fpm/
 sed -i -e "s/pm.max_spare_servers = 3/pm.max_spare_servers = 12/g" /etc/php5/fpm/pool.d/www.conf && \
 sed -i -e "s/;pm.max_requests = 500/pm.max_requests = 200/g" /etc/php5/fpm/pool.d/www.conf
 
+# syslog-ng graylog config
+ADD graylog.conf.tpl /etc/syslog-ng/conf.d/graylog.conf.tpl
+
 # supervisord config
 ADD supervisord.conf /etc/supervisord.conf
 
